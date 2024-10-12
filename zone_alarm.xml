@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite>
+	<id>S1</id>
+	<name>Master</name>
+	<description></description>
+	<sections>
+		<section>
+		<name>Zone alarm -Order Summary</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C1</id>
+				<title>order summary</title>
+												<template>Test Case (Text)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+															</custom>
+							</case>
+															<case>
+				<id>C2</id>
+				<title>Update the product quantity</title>
+												<template>Test Case (Steps)</template>
+																<type>Smoke &amp; Sanity</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<steps_separated><step>
+<content>Click on increase quantity button</content><expected>the quantity increases, the price is changed accordingly</expected></step>
+<step>
+<content>Click on decrease quantity button</content><expected>the quantity decreases, the price is changed accordingly. the decrease button is changed accordingly</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C3</id>
+				<title>Check equivalence partition of quantity input field</title>
+												<template>Test Case (Steps)</template>
+																<type>Smoke &amp; Sanity</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ https://estore.zonealarm.com/order/checkout.php?CART_ID=537eca7c5bd74b6f35d3012a4d659855]]>
+							</preconds>
+																								<steps_separated><step>
+<content>fill the input fiweld iwth 0</content><expected>The input field is 1</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C4</id>
+				<title>Update subscription on type</title>
+												<template>Test Case (Steps)</template>
+																<type>Smoke &amp; Sanity</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ https://estore.zonealarm.com/order/checkout.php?CART_ID=537eca7c5bd74b6f35d3012a4d659855]]>
+							</preconds>
+																								<steps_separated><step>
+<content>elect 2 years subcription radio button</content><expected>the product description is changed accordingly</expected></step>
+<step>
+<content></content><expected></expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C5</id>
+				<title>Remove the product from the cart</title>
+												<template>Test Case (Steps)</template>
+																<type>Functional</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<steps_separated><step>
+<content>Click on the trash icon</content><expected>Item will be removed from the cart and the user is redirected to the &quot;Empty Shopping Cart&quot; page</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C6</id>
+				<title>Check auto renewal functionality</title>
+												<template>Test Case (Steps)</template>
+																<type>Functional</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ https://estore.zonealarm.com/order/checkout.php?OPTIONS36245101=5d_es,1y]]>
+							</preconds>
+																								<steps_separated><step>
+<content>Access the url</content><expected>The page is displayed and the default value for auto renewal is on</expected></step>
+<step>
+<content>Click on edit button</content><expected>The auto renewal pop up is displayed</expected></step>
+<step>
+<content>Select the no radio button and click save</content><expected>Auto renewal setting is off</expected></step>
+<step>
+<content>Select the &quot;yes&quot; radio button and click the button save</content><expected>Auto renewal setting is ON</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C7</id>
+				<title>Apply a valid coupon</title>
+												<template>Test Case (Steps)</template>
+																<type>Functional</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ Site url]]>
+							</preconds>
+																								<steps_separated><step>
+<content>Click on I have a discount coupon</content><expected>The discount input field is displayed</expected></step>
+<step>
+<content>Fill the discount field: &quot; Test1&quot; and click on Apply button</content><expected>The discount is applied and it is displayed  in the green box above and the price is updated accordingly</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C8</id>
+				<title>Apply an invalid coupon</title>
+												<template>Test Case (Steps)</template>
+																<type>Destructive</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ the url]]>
+							</preconds>
+																								<steps_separated><step>
+<content>Click on &quot;I have a discount coupon&quot; button </content><expected>The discount field is displayed</expected></step>
+<step>
+<content>Click on &quot;apply&quot; button</content><expected>The discount coupon field border becomes red indicating error and an error icon is displayed</expected></step>
+<step>
+<content>Write on coupon field with an inexistent coupon and click on apply button </content><expected>The discount coupon field border becomes red indicating error and an error icon is displayed</expected></step>
+<step>
+<content>Write on coupon field with an expired coupon and click on apply button </content><expected>The discount coupon field border becomes red indicating error and an error icon is displayed</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C9</id>
+				<title>Apply valid coupon multiple times</title>
+												<template>Test Case (Steps)</template>
+																<type>Functional</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<steps_separated><step>
+<content>Click on I have a discount coupon</content><expected>The coupon field is displayed</expected></step>
+<step>
+<content>Fill with a valid coupon: &quot;test1&quot; and click on &quot;APPLY&quot; button
+
+</content><expected>The coupon is applied and displayed in the green box and the price is changed accordingly</expected></step>
+<step>
+<content>Click again on I have a discount coupon</content><expected>The coupon field is displayed</expected></step>
+<step>
+<content>Fill with a valid coupon: &quot;test1&quot; and click on &quot;APPLY&quot; button</content><expected>The discount field border appears in red and the error icon is displayed</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Zone Alarm - Your information</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C10</id>
+				<title>Different fields displayed according to the billing country</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<steps_separated><step>
+<content>Access the url page https://estore.zonealarm.com/order/checkout.php?CART_ID=537eca7c5bd74b6f35d3012a4d659855</content><expected>Teh page is displayed with the billing country according with the geolocation</expected></step>
+<step>
+<content>Select from the country dropdown list Turkey</content><expected>Turkey is selected and the billing form displays the following fields: &quot;City&quot;, &quot;State&quot;, &quot;National ID&quot;</expected></step>
+<step>
+<content>Select from the country drop down list Argentina</content><expected>The value is selected and the billing form displays Only the full name and email are displayed</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Ticket 1 - Auto prefill  state for USA</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C11</id>
+				<title>Complete the zip code with valid input</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ URL:https://estore.zonealarm.com/order/checkout.php?PRODS=36245101&QTY=1&OPTIONS36245101=5d_es%2C1y&CART=1&CARD=1&CURRENCY=EUR&DCURRENCY=EUR&LANG=en&COUPON=renewal&SHORT_FORM=1&DESIGN_TYPE=2&ORDERSTYLE=nLWw45W5kHY=&SRC=W100066]]>
+							</preconds>
+																								<steps_separated><step>
+<content>Select United States from the billing country drop down list</content><expected>The value is selected and the fields are displayed</expected></step>
+<step>
+<content>Fill in the zip code field with &quot;10001&quot;</content><expected>The state will be auto prefilled with &quot;New York&quot; state</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C12</id>
+				<title>Complete the zip code with invalid input</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ URL:https://estore.zonealarm.com/order/checkout.php?PRODS=36245101&QTY=1&OPTIONS36245101=5d_es%2C1y&CART=1&CARD=1&CURRENCY=EUR&DCURRENCY=EUR&LANG=en&COUPON=renewal&SHORT_FORM=1&DESIGN_TYPE=2&ORDERSTYLE=nLWw45W5kHY=&SRC=W100066]]>
+							</preconds>
+																								<steps_separated><step>
+<content>
+Select United States from the billing country drop down list</content><expected>The value is selected and the fields are displayed</expected></step>
+<step>
+<content>Fill in the zip code field with &quot;123456&quot;</content><expected>The state will not be auto prefilled</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C13</id>
+				<title>Update zip code from valid to valid</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ URL:https://estore.zonealarm.com/order/checkout.php?PRODS=36245101&QTY=1&OPTIONS36245101=5d_es%2C1y&CART=1&CARD=1&CURRENCY=EUR&DCURRENCY=EUR&LANG=en&COUPON=renewal&SHORT_FORM=1&DESIGN_TYPE=2&ORDERSTYLE=nLWw45W5kHY=&SRC=W100066]]>
+							</preconds>
+																								<steps_separated><step>
+<content>Select United States from the billing country drop down list</content><expected>The value is selected and the fields are displayed</expected></step>
+<step>
+<content>Fill in the zip code field with &quot;10001&quot;</content><expected>The state will be auto prefilled with &quot;New York&quot; state</expected></step>
+<step>
+<content>Update the zip code field with &quot;49686&quot;</content><expected>The state will be updated to &quot;Michigan&quot; state</expected></step>
+<step>
+<content>Update the zip code field with &quot;30002&quot;</content><expected>The state will be updated to &quot;Georgia&quot; state</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C14</id>
+				<title>Update zip code from valid to invalid</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ URL:https://estore.zonealarm.com/order/checkout.php?PRODS=36245101&QTY=1&OPTIONS36245101=5d_es%2C1y&CART=1&CARD=1&CURRENCY=EUR&DCURRENCY=EUR&LANG=en&COUPON=renewal&SHORT_FORM=1&DESIGN_TYPE=2&ORDERSTYLE=nLWw45W5kHY=&SRC=W100066]]>
+							</preconds>
+																								<steps_separated><step>
+<content>	
+Select United States from the billing country drop down list</content><expected>The value is selected and the fields are displayed</expected></step>
+<step>
+<content>Fill in the zip code field with &quot;10001&quot;</content><expected>The state will be auto prefilled with &quot;New York&quot; state</expected></step>
+<step>
+<content>Fill in the zip code field with &quot;123456&quot;</content><expected>The state will not be updated </expected></step>
+<step>
+<content>Fill in the zip code field with &quot;49686&quot;</content><expected>The state will be updated to &quot;Michigan&quot;</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+															<case>
+				<id>C15</id>
+				<title>Manually change the state when it is auto prefilled</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<preconds>
+								<![CDATA[ URL:https://estore.zonealarm.com/order/checkout.php?PRODS=36245101&QTY=1&OPTIONS36245101=5d_es%2C1y&CART=1&CARD=1&CURRENCY=EUR&DCURRENCY=EUR&LANG=en&COUPON=renewal&SHORT_FORM=1&DESIGN_TYPE=2&ORDERSTYLE=nLWw45W5kHY=&SRC=W100066]]>
+							</preconds>
+																								<steps_separated><step>
+<content>
+
+Select United States from the billing country drop down list</content><expected>	
+The value is selected and the fields are displayed</expected></step>
+<step>
+<content>Fill in the zip code field with &quot;10001&quot;</content><expected>The state will be auto prefilled with &quot;New York&quot; state</expected></step>
+<step>
+<content>Select from state drop down list a different value </content><expected>A different value is selected </expected></step>
+<step>
+<content>Click on &quot;continue to review&quot; button</content><expected>The page will refresh, the error messages will be displayed for mandatory fields, but the state filed will be updated to &quot;New York&quot; value</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+								</cases>
+							</section>
+			<section>
+		<name>Zone Alarm card number</name>
+		<description></description>
+						<cases>
+												<case>
+				<id>C16</id>
+				<title>Valid card number</title>
+												<template>Test Case (Steps)</template>
+																<type>Other</type>
+																<priority>Medium</priority>
+																				<estimate></estimate>
+																								<references></references>
+																				<custom>
+																		<automation_type><id>0</id><value> None</value></automation_type>
+																								<steps_separated><step>
+<content>Fill the &quot;Card number&quot; field with: 4916684788976344</content><expected>The field is completed and the VISA image is displayed.</expected></step>
+<step>
+<content>Fill the &quot;Card number&quot; field with:</content><expected>The field is completed and the Mastercard image is displayed</expected></step>
+<step>
+<content>Fill the &quot;Card number&quot; field with: </content><expected>The field is completed and the AMEX image is displayed</expected></step>
+<step>
+<content>Fill the &quot;Card number&quot; field with:</content><expected>The field is completed and the DISCOVER image is displayed</expected></step>
+<step>
+<content>Fill the &quot;Card number&quot; field with: </content><expected>The field is completed and the JCB image is displayed</expected></step>
+<step>
+<content>Fill the &quot;Card number&quot; field with: </content><expected>The field is completed and the Dinners-club - North America image is displayed</expected></step>
+</steps_separated>
+															</custom>
+							</case>
+								</cases>
+							</section>
+	</sections>
+</suite>
